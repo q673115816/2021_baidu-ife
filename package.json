@@ -1,0 +1,23 @@
+{
+  "name": "2021_baidu-ife",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/q673115816/2021_baidu-ife.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/q673115816/2021_baidu-ife/issues"
+  },
+  "homepage": "https://github.com/q673115816/2021_baidu-ife#readme",
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  }
+}

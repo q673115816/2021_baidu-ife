@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+        integrity="sha256-tq2XQC7duQPnpdenPuR6Z5IE773aRSGjkcutnfUJuTI=" crossorigin="anonymous">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="select-none">
+    <div id="root" class="flex flex-col h-screen" v-cloak>
+        <header class="flex items-center flex-none p-4 text-white" style="background-color: #2F3550;">
+            <h1 class="text-xl bold">CANVAS画板</h1>
+            <div class="ml-auto flex items-center gap-2">
+                <span>背景颜色</span>
+                <input type="color" v-model="bgcolor">
+                <span>画笔颜色</span>
+                <input type="color" v-model="strokeStyle">
+                <span>画笔粗细</span>
+                <input type="text" maxlength="2" v-model="lineWidth" class="rounded text-black px-4">
+                <button class="border rounded p-1" @click="clear">清空画布</button>
+                <button class="border rounded p-1" @click="save">保存图像</button>
+                <button class="border rounded p-1" @click="repeat">展示画图路径</button>
+            </div>
+        </header>
+        <main class="relative flex-1">
+            <div class="w-full h-full">
+                <canvas
+                class="w-full h-full" 
+                ref="end"></canvas>
+            </div>
+            <div class="absolute inset-0">
+                <canvas
+                class="w-full h-full" 
+                @mousedown="mousedown" 
+                @mousemove="mousemove" 
+                @mouseup="mouseup"
+                ref="front"></canvas>
+            </div>
+        </main>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
