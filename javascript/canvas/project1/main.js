@@ -82,12 +82,11 @@ Vue.createApp({
 
         mousedown(e) {
             this.drowFlag = true
-            const { clientX, clientY } = e
+            console.log(e);
+            const { layerX: x, layerY: y } = e
             this.ctxfront.beginPath()
             this.ctxfront.lineWidth = this.lineWidth
             this.ctxfront.strokeStyle = this.strokeStyle
-            const x = clientX
-            const y = clientY - this.screen.top
             this.ctxfront.moveTo(x, y)
             const path = {
                 lineWidth: this.lineWidth,
@@ -100,9 +99,7 @@ Vue.createApp({
             if (!this.drowFlag) return
             const length = this.paths.length
             const path = this.paths[length - 1]
-            const { clientX, clientY } = e
-            const x = clientX
-            const y = clientY - this.screen.top
+            const { layerX: x, layerY: y } = e
             this.ctxfront.lineTo(x, y)
             this.ctxfront.stroke();
             path.path.push([x, y, Date.now()])
